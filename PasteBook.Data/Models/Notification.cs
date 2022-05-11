@@ -13,7 +13,7 @@ namespace PasteBook.Data.Models
         public int UserAccountId { get; set; }
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [Column(TypeName = "datetime")]
-        public string TimeStamp { get; set; }
+        public DateTime TimeStamp { get; set; }
         [Column(TypeName = "nvarchar(13)")]
         [MinLength(4)]
         [MaxLength(13)]
