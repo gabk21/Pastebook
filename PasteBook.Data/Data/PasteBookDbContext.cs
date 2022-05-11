@@ -35,7 +35,7 @@ namespace PasteBook.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=CLMBQG3;Database=PasteBookDb;User Id=sa;Password=Idunnowest2308");
+                optionsBuilder.UseSqlServer("Server=server;Database=PasteBookDb;User Id=sa;Password=password");
             }
         }
     }
