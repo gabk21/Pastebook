@@ -27,7 +27,7 @@ namespace PasteBook.Data.Models
         [ForeignKey(nameof(UserAccountId))]
         [InverseProperty("Posts")]
         public virtual UserAccount UserAccount { get; set; }
-        public int AlbumId { get; set; }
+        public int? AlbumId { get; set; }
         public virtual Album Albums { get; set; }
         [InverseProperty(nameof(Comment.Post))]
         public virtual ICollection<Comment> Comments { get; set; }

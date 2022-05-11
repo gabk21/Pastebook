@@ -35,6 +35,9 @@ namespace PasteBook.Data.Models
         public string EmailAddress { get; set; }
         [Required]
         [DataType(DataType.Password)]
+        [Column(TypeName = "nvarchar(30)")]
+        [MinLength(1, ErrorMessage = "Password cannot be blank")]
+        [MaxLength(30, ErrorMessage = "Password cannot not exceed 30 characters")]
         public string Password { get; set; }
         [Required]
         [Column(TypeName = "datetime")]
@@ -43,7 +46,7 @@ namespace PasteBook.Data.Models
         [MinLength(1)]
         [MaxLength(10)]
         public string Gender { get; set; }
-        public int? MobileNumber { get; set; }
+        public string? MobileNumber { get; set; }
         public bool Active { get; set; }
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [Column(TypeName = "datetime")]

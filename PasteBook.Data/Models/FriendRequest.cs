@@ -28,9 +28,9 @@ namespace PasteBook.Data.Models
         [InverseProperty(nameof(UserAccount.FriendRequests))]
         public virtual UserAccount RequestReceiver { get; set; }
 
-        [ForeignKey(nameof(RequestSenderId))]
-        [InverseProperty(nameof(UserAccount.FriendRequests))]
-        public virtual UserAccount RequestSender { get; set; }
+        //[ForeignKey(nameof(RequestSenderId))]
+        //[InverseProperty(nameof(UserAccount.FriendRequests))]
+        //public virtual UserAccount RequestSender { get; set; }
 
 
         [InverseProperty(nameof(Notification.FriendRequest))]

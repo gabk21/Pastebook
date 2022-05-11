@@ -9,15 +9,16 @@ namespace PasteBook.Data
 {
     public partial class PasteBookDbContext : DbContext
     {
-        private readonly string connectionString;
-        public PasteBookDbContext()
-        {
-        }
+        //private readonly string connectionString;
+        //public PasteBookDbContext(string connectionString)
+        //{
+        //    this.connectionString = connectionString;
+        //}
 
-        public PasteBookDbContext(DbContextOptions<PasteBookDbContext> options)
-            : base(options)
-        {
-        }
+        //public PasteBookDbContext(DbContextOptions<PasteBookDbContext> options)
+        //    : base(options)
+        //{
+        //}
 
         public virtual DbSet<Album> Albums { get; set; }
         public virtual DbSet<BlockedAccount> BlockedAccounts { get; set; }
@@ -34,7 +35,7 @@ namespace PasteBook.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(this.connectionString);
+                optionsBuilder.UseSqlServer("Server=CLMBQG3;Database=PasteBookDb;User Id=sa;Password=Idunnowest2308");
             }
         }
     }
