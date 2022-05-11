@@ -1,1 +1,55 @@
-<p>registration-page works!</p>
+
+<div class="container">
+    <form class="register-form" [formGroup]="registerForm" (submit)="onSubmit()">
+        <div>
+            <input type="text"
+            name="first-name"
+            id="first-name"
+            formControlName="first-name"
+            placeholder="First Name">
+        </div>
+        <div class="error-div">This field is required</div><br>
+
+        <input type="text"
+        name="last-name"
+        id="last-name"
+        formControlName="last-name"
+        placeholder="Last Name"><br>
+
+        <input type="text"
+        name="email"
+        id="email"
+        formControlName="email"
+        placeholder="Email"><br>
+
+        <input type="password"
+        name="password"
+        id="password"
+        formControlName="password"
+        placeholder="Password"><br>
+
+        <input type="password"
+        name="confirm-password"
+        id="password"
+        formControlName="confirm-password"
+        placeholder="Confirm Password"><br>
+
+        <input type="text"
+        name="birthday"
+        id="birthday"
+        formControlName="birthday"
+        placeholder="Birthday"><br>
+
+        <input type="text"
+        name="gender"
+        id="gender"
+        formControlName="gender"
+        placeholder="Gender"><br>
+
+        <input type="text"
+        name="number"
+        id="number"
+        formControlName="number"
+        placeholder="Mobile Number"><br>
+    </form>
+</div>
