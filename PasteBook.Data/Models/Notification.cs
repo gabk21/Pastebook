@@ -32,6 +32,7 @@ namespace PasteBook.Data.Models
         [ForeignKey(nameof(LikesId))]
         [InverseProperty(nameof(Like.Notifications))]
         public virtual Like Likes { get; set; }
+
         [ForeignKey(nameof(UserAccountId))]
         [InverseProperty("Notifications")]
         public virtual UserAccount UserAccount { get; set; }

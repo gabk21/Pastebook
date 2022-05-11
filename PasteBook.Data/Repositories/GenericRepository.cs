@@ -22,9 +22,6 @@ namespace PasteBook.Data.Repositories
         T Update(T entity);
         Task<T> Delete(int id);
         T Delete(T entity);
-
-        //Task<IEnumerable<T>> Find(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string includeProperties = "");
-        //Task<IEnumerable<T>> FindQuery(string query, params object[] parameters);
     }
 
     public abstract class GenericRepository<T> where T : BaseEntity
@@ -120,36 +117,5 @@ namespace PasteBook.Data.Repositories
 
             return entity;
         }
-
-        //public async Task<IEnumerable<T>> Find(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string includeProperties = "")
-        //{
-        //    IQueryable<T> query = this.Context.Set<T>();
-
-        //    if (filter is object)
-        //    {
-        //        query = query.Where(filter);
-        //    }
-
-        //    if (includeProperties is object)
-        //    {
-        //        foreach (var includeProperty in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
-        //        {
-        //            query = query.Include(includeProperty);
-        //        }
-        //    }
-
-        //    if (orderBy is object)
-        //    {
-        //        return await orderBy(query).ToListAsync();
-        //    }
-
-        //    return await query.ToListAsync();
-        //}
-
-        //public async Task<IEnumerable<T>> FindQuery(string sqlQuery, params object[] parameters)
-        //{
-        //    var query = this.Context.Set<T>();
-        //    return await query.FromSqlRaw(sqlQuery, parameters).ToListAsync();
-        //}
     }
 }

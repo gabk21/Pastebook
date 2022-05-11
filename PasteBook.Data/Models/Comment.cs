@@ -16,8 +16,7 @@ namespace PasteBook.Data.Models
         }
         public int PostId { get; set; }
         public int CommentingUserId { get; set; }
-        [Column("Comment")]
-        public string Comment1 { get; set; }
+        public string CommentContent { get; set; }
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [Column(TypeName = "datetime")]
         public DateTime TimeStamp { get; set; }
@@ -25,6 +24,7 @@ namespace PasteBook.Data.Models
         [ForeignKey(nameof(PostId))]
         [InverseProperty("Comments")]
         public virtual Post Post { get; set; }
+
         [InverseProperty(nameof(Notification.Comment))]
         public virtual ICollection<Notification> Notifications { get; set; }
     }

@@ -16,5 +16,9 @@ namespace PasteBook.Data.Models
         [ForeignKey(nameof(UserAccountId))]
         [InverseProperty("BlockedAccounts")]
         public virtual UserAccount UserAccount { get; set; }
+
+        [ForeignKey(nameof(BlockedAccountId))]
+        [InverseProperty("BlockedAccounts")]
+        public virtual UserAccount BlockedUserAccount { get; set; }
     }
 }

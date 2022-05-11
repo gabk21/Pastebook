@@ -19,5 +19,9 @@ namespace PasteBook.Data.Models
         [ForeignKey(nameof(UserAccountId))]
         [InverseProperty("Friends")]
         public virtual UserAccount UserAccount { get; set; }
+
+        [ForeignKey(nameof(FriendAccountId))]
+        [InverseProperty("Friends")]
+        public virtual UserAccount FriendAccount { get; set; }
     }
 }

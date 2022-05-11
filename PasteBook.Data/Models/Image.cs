@@ -10,7 +10,7 @@ namespace PasteBook.Data.Models
 {
     public partial class Image : BaseEntity
     {
-        public int? AlbumId { get; set; }
+        public int AlbumId { get; set; }
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [Column(TypeName = "datetime")]
         public DateTime TimeStamp { get; set; }
