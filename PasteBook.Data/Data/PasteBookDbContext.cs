@@ -5,7 +5,7 @@ using PasteBook.Data.Models;
 
 #nullable disable
 
-namespace PasteBook.Data.Data
+namespace PasteBook.Data
 {
     public partial class PasteBookDbContext : DbContext
     {

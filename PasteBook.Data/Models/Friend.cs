@@ -8,10 +8,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace PasteBook.Data.Models
 {
-    public partial class Friend
+    public partial class Friend : BaseEntity
     {
-        [Key]
-        public int Id { get; set; }
         public int UserAccountId { get; set; }
         public int FriendAccountId { get; set; }
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]

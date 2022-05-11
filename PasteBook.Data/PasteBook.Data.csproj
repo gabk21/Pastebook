@@ -5,10 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Exceptions\" />
     <Folder Include="Data\" />
-    <Folder Include="DataTransferObjects\" />
-    <Folder Include="Repositories\" />
   </ItemGroup>
 
   <ItemGroup>

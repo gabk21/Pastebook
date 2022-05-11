@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace PasteBook.Data.Models
 {
-    public partial class Post
+    public partial class Post : BaseEntity
     {
         public Post()
         {
@@ -17,18 +17,17 @@ namespace PasteBook.Data.Models
             Likes = new HashSet<Like>();
         }
 
-        [Key]
-        public int Id { get; set; }
         public int UserAccountId { get; set; }
         public bool Visibility { get; set; }
         public string Content { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [Column(TypeName = "datetime")]
-        public DateTime? TimeStamp { get; set; }
+        public DateTime TimeStamp { get; set; }
 
         [ForeignKey(nameof(UserAccountId))]
         [InverseProperty("Posts")]
         public virtual UserAccount UserAccount { get; set; }
-        public int? AlbumId { get; set; }
+        public int AlbumId { get; set; }
         public virtual Album Albums { get; set; }
         [InverseProperty(nameof(Comment.Post))]
         public virtual ICollection<Comment> Comments { get; set; }
