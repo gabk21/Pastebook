@@ -14,14 +14,17 @@ namespace PasteBook.Data.Repositories
 {
     public interface IBaseRepository<T> where T : BaseEntity
     {
-        //Task<IEnumerable<T>> Paginate(PagedDTO pagedDTO);
-        //Task<PagedListDTO<T>> PaginateWithInfo(PagedDTO pagedDTO);
         Task<IEnumerable<T>> FindAll();
         Task<T> FindByPrimaryKey(int id);
         Task<T> Insert(T entity);
         T Update(T entity);
         Task<T> Delete(int id);
         T Delete(T entity);
+
+        // new addition
+        Task<IEnumerable<T>> InfiniteScrollList(int pageNumber, int itemsPerScroll);
+        Task<ScrollListDTO<T>> InfiniteScrollListWithInfo(int pageNumber, int itemsPerScroll);
+        // new addition
     }
 
     public abstract class GenericRepository<T> where T : BaseEntity
@@ -33,20 +36,20 @@ namespace PasteBook.Data.Repositories
 
         public PasteBookDbContext Context { get; set; }
 
-        //public async Task<IEnumerable<T>> Paginate(PagedDTO pagedDTO)
-        //{
-        //    IQueryable<T> query = this.Context.Set<T>();
-        //    return await query.Skip((pagedDTO.PageNumber - 1) * pagedDTO.PageSize)
-        //                      .Take(pagedDTO.PageSize)
-        //                      .ToListAsync();
-        //}
+        // new addition
+        public async Task<IEnumerable<T>> InfiniteScrollList(int pageNumber, int itemsPerScroll)
+        {
+            IQueryable<T> query = this.Context.Set<T>();
+            return await query.Take(pageNumber * itemsPerScroll)
+                              .ToListAsync();
+        }
 
-        //public async Task<PagedListDTO<T>> PaginateWithInfo(PagedDTO pagedDTO)
-        //{
-        //    IQueryable<T> query = this.Context.Set<T>();
-        //    return await PagedListDTO<T>.ToPagedList(query, pagedDTO.PageNumber, pagedDTO.PageSize);
-        //}
-
+        public async Task<ScrollListDTO<T>> InfiniteScrollListWithInfo(int pageNumber, int itemsPerScroll)
+        {
+            IQueryable<T> query = this.Context.Set<T>();
+            return await ScrollListDTO<T>.GetScrollListAsync(query, pageNumber, itemsPerScroll);
+        }
+        // new addition
         public async Task<IEnumerable<T>> FindAll()
         {
             IQueryable<T> query = this.Context.Set<T>();
